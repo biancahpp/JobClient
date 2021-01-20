@@ -1,0 +1,37 @@
+.AddJob{
+  form{
+    background-color: palegoldenrod;
+    padding: 3rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    .text-input{
+      height: 3rem;
+      width: 50rem;
+    }
+    .checkbox-input{
+      input{
+        height: 3rem;
+        width: 3rem;
+        margin: 0 2rem 0 2rem;
+      }
+    }
+    .radio-input{
+      input{
+        height: 3rem;
+        width: 3rem;
+        margin: 0 2rem 0 2rem;
+      }
+    }
+    .drop-input{
+      select{
+        height: 3rem;
+        width: 30rem;
+      }
+    }
+    button{
+      width: 10rem;
+      height: 3rem;
+    }
+  }
+}

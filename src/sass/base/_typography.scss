@@ -1,0 +1,20 @@
+.Landing{
+  font-size: 3rem;
+}
+
+.AddJob{
+  font-size: 3rem;
+  form{
+    input{
+      font-size: 2rem;
+    }
+    .drop-input{
+      select{
+        font-size: 2rem;
+      }
+    }
+    button{
+      font-size: 2rem;
+    }
+  }
+}
