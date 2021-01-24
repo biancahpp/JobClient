@@ -31,5 +31,16 @@
         margin-left: 2rem;
       }
     }
+
+    .job-specs{
+      display: flex;
+      justify-content: flex-start;
+      span{
+        padding-right: 1rem;
+        &:not(:first-child){
+          padding-left: 1rem;
+        }
+      }
+    }
   }
 }
