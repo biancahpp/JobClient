@@ -2,6 +2,7 @@ import { Job } from "../interface/Jobs";
 
 export const ADD_JOB = "ADD_JOB";
 export const GET_JOBS = "GET_JOBS";
+export const DELETE_JOBS = "DELETE_JOBS";
 
 
 export interface InitialState {
@@ -24,4 +25,9 @@ export const getJobs = (jobs:Job[]) =>({
 export const addJobs = (job:Job) =>({
   type: ADD_JOB,
   payload: job
+})
+
+export const deleteJobs = (id:string) =>({
+  type: DELETE_JOBS,
+  payload: id
 })

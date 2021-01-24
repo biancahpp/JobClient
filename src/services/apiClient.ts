@@ -11,3 +11,8 @@ export async function postJob(job:JobRaw) {
   return response.data;
 }
 
+export async function apiDeleteJob(id:string) {
+  const response = await api.delete(`/job/${id}`);
+  return response.data;
+}
+

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import filters from "../filters/filters.json";
-import { v4 as uuidv4 } from "uuid";
 import { postJob } from "../services/apiClient";
 import { useDispatch } from "react-redux";
 import { addJobs } from "../Store/actions";
