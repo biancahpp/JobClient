@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { apiDeleteJob } from "../services/apiClient";
 import { deleteJobs } from "../Store/actions";
 import moment from "moment";
+import { FiTrash2 } from 'react-icons/fi';
 
-export default function JobCard({ details }: any) {
+export default function JobCard({ details, handleFilter }: any) {
 
   const dispatch = useDispatch();
+
+  const [ filters, setFilters ] = useState<any>([]);
 
   async function handleDelete(id: string) {
     const response = await apiDeleteJob(id);
@@ -21,6 +24,13 @@ export default function JobCard({ details }: any) {
       style: "currency",
       currency: "USD",
     });
+  }
+
+  function filterTags(tag:string){
+    let teste = [...filters, tag];
+    setFilters(teste);
+    handleFilter(teste);
+    console.log(filters)
   }
 
   return (
@@ -37,16 +47,15 @@ export default function JobCard({ details }: any) {
             <span>{formatMoney(item.salary)}</span>
             <div className="job-specs">
               <span>{moment(item.date, "x").fromNow()}</span>
-              {console.log(item.date.toString())}
               <span>{item.type}</span>
               <span>{item.location}</span>
             </div>
 
             <div className="tags">
               {item.tags &&
-                item.tags.map((item: any) => <div key={uuidv4()}>{item}</div>)}
+                item.tags.map((tag: any) => <div key={uuidv4()} className="tag" onClick={() => filterTags(tag)}>{tag}</div>)}
             </div>
-            <button onClick={() => handleDelete(item._id)}>Delete</button>
+            <button onClick={() => handleDelete(item._id)} className="delete-btn"> <FiTrash2 size={26}/> </button>
           </div>
         ))
       ) : (

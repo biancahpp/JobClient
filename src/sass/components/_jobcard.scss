@@ -1,5 +1,4 @@
 .JobCard{
-  background-color: blue;
   width: 90vw;
 
   &__card{
@@ -41,6 +40,27 @@
           padding-left: 1rem;
         }
       }
+    }
+    .tags{
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      
+      .tag{
+        display: inline-block;
+        background-color: $filter-tablets;
+        padding: 1.2rem;
+        margin: 1rem 1rem 0 0;
+        border-radius: .5rem;
+      }
+    }
+    .delete-btn {
+      border: none;
+      background-color: $card-background;
+
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
     }
   }
 }
