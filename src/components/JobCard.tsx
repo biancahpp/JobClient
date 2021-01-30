@@ -27,10 +27,12 @@ export default function JobCard({ details, handleFilter }: any) {
   }
 
   function filterTags(tag:string){
-    let teste = [...filters, tag];
-    setFilters(teste);
-    handleFilter(teste);
-    console.log(filters)
+    if (!filters.includes(tag)){
+      let teste = [...filters, tag];
+      setFilters(teste);
+      handleFilter(teste);
+    }
+    
   }
 
   return (
