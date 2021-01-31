@@ -5,11 +5,24 @@
     width: 90vw;
     background-color: $card-background;
     border-radius: 1rem;
-    padding: 1.5rem;
+    // padding: 1.5rem;
     box-shadow: 0 1rem 2rem rgba($shadow, .10);
 
     position: absolute;
     top: 15vh;
+
+    display: flex;
+    flex-wrap: wrap;
+    .delete-filter{
+      color: black;
+    }
+    .filters-active{
+      display: inline-block;
+      background-color: $filter-tablets;
+      padding: 1.2rem;
+      margin: 1rem 1rem 0 0;
+      border-radius: .5rem;
+    }
   }
 
   &__card{
@@ -79,11 +92,5 @@
       right: 2rem;
     }
   }
-  .filters-active{
-    display: inline-block;
-    background-color: $filter-tablets;
-    padding: 1.2rem;
-    margin: 1rem 1rem 0 0;
-    border-radius: .5rem;
-  }
+  
 }

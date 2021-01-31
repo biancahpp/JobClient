@@ -10,7 +10,7 @@ export default function Landing({details}:any) {
   useEffect(() => setCurrentFilter(details), [details])
 
   function filterJobs(tag:string[]){
-    tag ? setCurrentFilter(details.filter((obj:any) => tag.some(r => obj.tags.includes(r)))) :
+    tag.length > 0 ? setCurrentFilter(details.filter((obj:any) => tag.some(r => obj.tags.includes(r)))) :
     setCurrentFilter(details)
   }
 

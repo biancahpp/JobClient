@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { apiDeleteJob } from "../services/apiClient";
 import { deleteJobs } from "../Store/actions";
 import moment from "moment";
-import { FiTrash2 } from 'react-icons/fi';
+import { FiTrash2, FiX } from 'react-icons/fi';
 
 export default function JobCard({ details, handleFilter }: any) {
 
@@ -35,23 +35,33 @@ export default function JobCard({ details, handleFilter }: any) {
   }
 
   function removeTag(it:string){
-    console.log(it)
     let remove = filters.filter((tag:string) => tag !== it)
 
     setFilters(remove);
     handleFilter(remove);
   }
 
+  function clearAll() {
+    setFilters([]);
+    handleFilter([]);
+  }
+
   return (
     <div className="JobCard">
       {filters && 
       <div className="filters-wrapper">
-        {filters.map((it:string) => <div key={uuidv4()} >{ <div>
-          <span className="filters-active">{it}</span>
-          <button onClick={() => removeTag(it)}>X</button>
-        </div>
+        {filters.map((it:string) => 
+          <div key={uuidv4()}>
+            { 
+            <div>
+              <span className="filters-active">{it}</span>
+              <FiX onClick={() => removeTag(it)} className="delete-filter">X</FiX>
+            </div>
+            }
+        </div>)
+        }
+        {filters.length > 0 && <button onClick={() => clearAll()}>Clear All</button>}
         
-        }</div>)}
       </div>
       }
       {details ? (
