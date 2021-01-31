@@ -1,6 +1,8 @@
 .Landing{
-  background-color: palegoldenrod;
+  background-color: $background-color;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  position: relative;
 }

@@ -39,10 +39,12 @@
       padding: 1.5rem 0;
     }
     .job-specs{
+      color: $light-grey;
       span{
         font-size: 1.5rem;
         &:not(:first-child):before{
           content: "•";
+          padding-right: 1rem;
         }
       }
     }
@@ -51,5 +53,11 @@
       font-weight: 700;
       color: $font-green;
     }
+  }
+
+  .filters-active{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $font-green;
   }
 }

@@ -28,15 +28,32 @@ export default function JobCard({ details, handleFilter }: any) {
 
   function filterTags(tag:string){
     if (!filters.includes(tag)){
-      let teste = [...filters, tag];
-      setFilters(teste);
-      handleFilter(teste);
+      let addTag = [...filters, tag];
+      setFilters(addTag);
+      handleFilter(addTag);
     }
-    
+  }
+
+  function removeTag(it:string){
+    console.log(it)
+    let remove = filters.filter((tag:string) => tag !== it)
+
+    setFilters(remove);
+    handleFilter(remove);
   }
 
   return (
     <div className="JobCard">
+      {filters && 
+      <div className="filters-wrapper">
+        {filters.map((it:string) => <div key={uuidv4()} >{ <div>
+          <span className="filters-active">{it}</span>
+          <button onClick={() => removeTag(it)}>X</button>
+        </div>
+        
+        }</div>)}
+      </div>
+      }
       {details ? (
         details.map((item: any) => (
           <div key={uuidv4()} className="JobCard__card">
@@ -46,7 +63,9 @@ export default function JobCard({ details, handleFilter }: any) {
               {item.featured === true && <span> Featured </span>}
             </div>
             <h2>{item.title}</h2>
-            <span>{formatMoney(item.salary)}</span>
+            <span className="job-salary">
+              {formatMoney(item.salary)}
+            </span>
             <div className="job-specs">
               <span>{moment(item.date, "x").fromNow()}</span>
               <span>{item.type}</span>
