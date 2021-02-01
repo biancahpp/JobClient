@@ -4,6 +4,7 @@ import { postJob } from "../services/apiClient";
 import { useDispatch } from "react-redux";
 import { addJobs } from "../Store/actions";
 import { v4 as uuidv4 } from "uuid";
+import BackBtn from "../components/BackBtn";
 
 
 export default function AddJob() {
@@ -52,9 +53,10 @@ export default function AddJob() {
   }
   return (
     <div className="AddJob">
+      <BackBtn />
       <h1>Add a Job</h1>
       <form onSubmit={() => handleSubmit()} action="/">
-        <div>
+        <div className="jobtitle-wrapper">
           <span>Job Title</span>
           <input
             type="text"
@@ -64,7 +66,7 @@ export default function AddJob() {
             required
           />
         </div>
-        <div>
+        <div className="companyname-wrapper">
           <span>Company Name</span>
           <input
             type="text"
@@ -74,7 +76,7 @@ export default function AddJob() {
             required
           />
         </div>
-        <div>
+        <div className="logourl-wrapper">
           <span>Logo URL</span>
           <input
             type="text"
@@ -83,7 +85,7 @@ export default function AddJob() {
             onChange={(e) => setLogoURL(e.target.value)}
             required
           />
-          <span>Please insert an url of your svg logo. To upload one you can use <a href="https://svgur.com/">SvgShare</a>. </span>
+          <span className="logourl-description">Please insert an url of your svg logo. To upload one you can use <a href="https://svgur.com/">SvgShare</a>. </span>
         </div>
         <div className="drop-input">
           <span>Job Type</span>
@@ -94,7 +96,7 @@ export default function AddJob() {
             <option value="Contract">Contract</option>
           </select>
         </div>
-        <div>
+        <div className="joblocation-wrapper">
           <span>Job Location</span>
           <input
             type="text"
@@ -106,29 +108,28 @@ export default function AddJob() {
         </div>
 
         <div className="checkbox-wrapper">
-          <span>Filters</span>
+          <span className="title-filters">Filters</span>
           <div className="checkbox-input">
             {filters &&
               filters.map((item: string) => (
-                <React.Fragment key={uuidv4()}>
-                  <label  htmlFor={item}>
-                    {item}
-                  </label>
+                <div key={uuidv4()} className="checkmark-label">
                   <input
                     type="checkbox"
                     name={item}
                     checked={checked[item]}
                     onChange={() => toggleChecked(item)}
                   />
-                </React.Fragment>
+                  <label  htmlFor={item}>
+                    <span>{item}</span> 
+                  </label>
+                </div>
               ))}
           </div>
         </div>
-
-        <div>
+        <div className="salary-wrapper">
           <span>Salary</span>
           <input
-            type="text"
+            type="number"
             className="text-input"
             name="salary"
             onChange={(e) => setSalary(parseInt(e.target.value))}
@@ -138,23 +139,30 @@ export default function AddJob() {
 
         <div className="radio-input">
           <span>Feature?</span>
-          <input
-            type="radio"
-            name="featured"
-            value="yes"
-            onChange={() => setFeatured(true)}
-          />{" "}
-          Yes
-          <input
-            type="radio"
-            name="featured"
-            value="no"
-            onChange={() => setFeatured(false)}
-          />{" "}
-          No
+          <div className="radiospan-wrapper">
+            <div>
+              <input
+              type="radio"
+              name="featured"
+              value="yes"
+              onChange={() => setFeatured(true)}
+              />
+              <span>Yes</span>
+            </div>
+            <div>
+              <input
+              type="radio"
+              name="featured"
+              value="no"
+              onChange={() => setFeatured(false)}
+              />
+              <span>No</span>
+            </div>
+          </div>          
         </div>
-
-        <button type="submit">Submit </button>
+        <div className="submitbutton-wrapper">
+          <button type="submit">Submit</button>
+        </div>
       </form>
     </div>
   );

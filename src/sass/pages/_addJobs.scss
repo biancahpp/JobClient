@@ -1,9 +1,21 @@
 .AddJob{
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
+  padding: 1.8rem;
+
+  background-color: $font-green;
+
+  position: relative;
+
+  h1{
+    padding: 3rem;
+  }
   form{
-    background-color: palegoldenrod;
+    background-color: $card-background;
+
+    border-radius: 1rem;
+    box-shadow: 0 1rem 2rem rgba($shadow, .10);
 
     display: flex;
     flex-direction: column;
@@ -12,40 +24,107 @@
     span{
       display: block;
     }
-
-    .text-input{
-      height: 3rem;
-      width: 15rem;
+    .jobtitle-wrapper{
+      @include form-spacing;
+      span{
+        padding: 0 1rem 1rem 0;
+      }
     }
+    .companyname-wrapper{
+      @include form-spacing;
+      span{
+        padding: 0 1rem 1rem 0;
+      }
+    }
+    .logourl-wrapper{
+      @include form-spacing;
+      span{
+        padding: 0 1rem 1rem 0;
+      }
+      .logourl-description{
+        padding: 1rem;
+      }
+    }
+    .drop-input{
+      @include form-spacing;
+      select{
+        @include input-size;
+        @include input-style;
+      }
+      span{
+        padding: 0 1rem 1rem 0;
+      }
+    }
+
+    .joblocation-wrapper{
+      @include form-spacing;
+      span{
+        padding: 0 1rem 1rem 0;
+      }
+    }
+
     .checkbox-wrapper{
-      background-color: red;
       display: flex;
       flex-direction: column;
+      .title-filters{
+        padding: 1rem;
+      }
       .checkbox-input{
+        display: flex;
+        flex-wrap: wrap;
+
+        padding: 1rem;
+        .checkmark-label{
+          width: 50%;
+          display: flex;
+          padding: .5rem;
+          input{
+            min-height: 2rem;
+            min-width: 2rem;
+            margin: 0 .3rem 0 0;
+          }
+        }
+      }
+    }
+    .salary-wrapper{
+      @include form-spacing;
+      span{
+        padding: 0 1rem 1rem 0;
+      }
+    }
+    .radio-input{
+      @include form-spacing;
+
+      display:flex;
+      flex-direction: column;
+      span{
+        padding: 0 1rem 1rem 0;
+      }
+      .radiospan-wrapper{
+        display: flex;
         input{
           height: 3rem;
           width: 3rem;
           margin: 0 2rem 0 2rem;
         }
+        span{
+          display: inline-block;
+        }
+      }
+    }
+    .text-input{
+      @include input-size;
+
+      @include input-style;
+    }
+    .submitbutton-wrapper{
+      @include form-spacing;
+      button{
+        @include input-size;
+        @include input-style;
+        background-color: $filter-tablets;
+      }
     }
     
-    }
-    .radio-input{
-      input{
-        height: 3rem;
-        width: 3rem;
-        margin: 0 2rem 0 2rem;
-      }
-    }
-    .drop-input{
-      select{
-        height: 3rem;
-        width: 15rem;
-      }
-    }
-    button{
-      width: 10rem;
-      height: 3rem;
-    }
   }
 }

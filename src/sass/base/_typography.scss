@@ -3,20 +3,55 @@
 }
 
 .AddJob{
+  color: $font-green;
   h1{
     font-size: 3rem;
     font-weight: 500;
+    color: $card-background;
   }
   form{
     input{
       font-size: 2rem;
     }
+    span{
+      font-size: 1.8rem;
+    }
     .drop-input{
       select{
         font-size: 2rem;
+        color: $font-green;
       }
     }
-    button{
+    .submitbutton-wrapper{
+      button{
+        font-size: 2rem;
+        font-weight: 700;
+        color: $font-green;
+      }
+    }
+  }
+  .logourl-description{
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+  .checkbox-wrapper{
+    .title-filters{
+      font-size: 2rem;
+    }
+    .checkbox-input{
+      span{
+        font-size: 1.5rem;
+      }
+    }
+  
+  }
+  .radio-input{
+    input{
+      height: 3rem;
+      width: 3rem;
+      margin: 0 2rem 0 2rem;
+    }
+    span{
       font-size: 2rem;
     }
   }
@@ -71,7 +106,8 @@
   .clear-wrapper{  
     button{
       color: $light-grey;
-      font-size: 1.8rem;    }
+      font-size: 1.8rem;
+    }
   }
 }
 
@@ -86,5 +122,11 @@
       text-transform: uppercase;
       font-size: 1.5rem;
     }
+  }
+}
+
+.BackBtn{
+  .back-btn{
+    color: $card-background;
   }
 }

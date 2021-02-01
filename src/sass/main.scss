@@ -1,8 +1,10 @@
 @import "abstracts/variables";
+@import "abstracts/mixins";
 
 @import "base/base";
 @import "base/typography";
 
+@import "components/backbtn";
 @import "components/header";
 @import "components/jobcard";
 

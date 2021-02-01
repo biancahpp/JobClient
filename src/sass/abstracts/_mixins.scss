@@ -1,0 +1,17 @@
+@mixin form-spacing{
+  padding: 1.5rem;
+  width: 100%;
+}
+
+@mixin input-style{
+  padding: .5rem;
+  border: 1px solid $font-green;
+  border-radius: .5rem;
+  box-shadow: 0 1rem 2rem rgba($shadow, .10);
+  background-color: $card-background;
+}
+
+@mixin input-size{
+  width: 100%;
+  min-height: 3rem;
+}
