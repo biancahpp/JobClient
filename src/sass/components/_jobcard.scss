@@ -1,34 +1,75 @@
 .JobCard{
   width: 90vw;
 
+  position: absolute;
+  top: 15vh;
+
   .filters-wrapper{
     width: 90vw;
     background-color: $card-background;
     border-radius: 1rem;
-    // padding: 1.5rem;
     box-shadow: 0 1rem 2rem rgba($shadow, .10);
-
-    position: absolute;
-    top: 15vh;
 
     display: flex;
     flex-wrap: wrap;
-    .delete-filter{
-      color: black;
+    .tablets-wrapper{
+      width: 75%;
+
+      display: flex;
+      flex-wrap: wrap;
+      .filter-and-delete{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem 1rem 1rem 1.5rem;
+  
+  
+        .delete-icon-wrapper{
+          background-color: $font-green;
+          height: 3.5rem;
+          padding: 1rem;
+          border-radius: 0 .5rem .5rem 0;
+          
+          display: flex;
+          align-items: center;
+  
+          .delete-filter{
+            color: $card-background;
+            height: 2rem;
+            width: 2rem;
+          }
+        }
+        
+        .filters-active{
+          display: inline-block;
+          background-color: $filter-tablets;
+          height: 3.5rem;
+          padding: 1.3rem;
+          border-radius: .5rem 0 0 .5rem;
+          box-shadow: 0 1rem 2rem rgba($shadow, .10);
+  
+        }
     }
-    .filters-active{
-      display: inline-block;
-      background-color: $filter-tablets;
-      padding: 1.2rem;
-      margin: 1rem 1rem 0 0;
-      border-radius: .5rem;
+    
     }
+    .clear-wrapper{
+      width: 25%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;      
+      button{
+        background-color: $card-background;
+        border: none;
+      }
+    }
+   
   }
 
   &__card{
     background-color: $card-background;
 
-    margin-top: 7.5rem;
+    margin-top: 12rem;
     padding: 5rem 1.5rem 1.5rem 1.5rem;
     border-radius: 1rem;
     box-shadow: 0 1rem 2rem rgba($shadow, .10);

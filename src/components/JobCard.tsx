@@ -10,7 +10,7 @@ export default function JobCard({ details, handleFilter }: any) {
 
   const dispatch = useDispatch();
 
-  const [ filters, setFilters ] = useState<any>([]);
+  const [filters, setFilters] = useState<any>([]);
 
   async function handleDelete(id: string) {
     const response = await apiDeleteJob(id);
@@ -26,16 +26,16 @@ export default function JobCard({ details, handleFilter }: any) {
     });
   }
 
-  function filterTags(tag:string){
-    if (!filters.includes(tag)){
+  function filterTags(tag: string) {
+    if (!filters.includes(tag)) {
       let addTag = [...filters, tag];
       setFilters(addTag);
       handleFilter(addTag);
     }
   }
 
-  function removeTag(it:string){
-    let remove = filters.filter((tag:string) => tag !== it)
+  function removeTag(it: string) {
+    let remove = filters.filter((tag: string) => tag !== it)
 
     setFilters(remove);
     handleFilter(remove);
@@ -48,21 +48,31 @@ export default function JobCard({ details, handleFilter }: any) {
 
   return (
     <div className="JobCard">
-      {filters && 
-      <div className="filters-wrapper">
-        {filters.map((it:string) => 
-          <div key={uuidv4()}>
-            { 
-            <div>
-              <span className="filters-active">{it}</span>
-              <FiX onClick={() => removeTag(it)} className="delete-filter">X</FiX>
-            </div>
+      {filters &&
+        <div className="filters-wrapper">
+          <div className="tablets-wrapper">
+            {filters.map((it: string) =>
+              <div key={uuidv4()}>
+                {
+                  <div className="filter-and-delete">
+                    <span className="filters-active">
+                      {it}
+                    </span>
+                    <div className="delete-icon-wrapper">
+                      <FiX onClick={() => removeTag(it)} className="delete-filter"></FiX>
+                    </div>
+                  </div>
+                }
+              </div>)
             }
-        </div>)
-        }
-        {filters.length > 0 && <button onClick={() => clearAll()}>Clear All</button>}
-        
-      </div>
+          </div>
+          <div className="clear-wrapper">
+            {filters.length > 0 && <button onClick={() => clearAll()}>Clear</button>}
+          </div>
+
+
+
+        </div>
       }
       {details ? (
         details.map((item: any) => (
@@ -86,12 +96,12 @@ export default function JobCard({ details, handleFilter }: any) {
               {item.tags &&
                 item.tags.map((tag: any) => <div key={uuidv4()} className="tag" onClick={() => filterTags(tag)}>{tag}</div>)}
             </div>
-            <button onClick={() => handleDelete(item._id)} className="delete-btn"> <FiTrash2 size={26}/> </button>
+            <button onClick={() => handleDelete(item._id)} className="delete-btn"> <FiTrash2 size={26} /> </button>
           </div>
         ))
       ) : (
-        <div>Loading</div>
-      )}
+          <div>Loading</div>
+        )}
     </div>
   );
 }

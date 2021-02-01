@@ -5,4 +5,25 @@
   background-repeat: no-repeat;
   background-color: hsl(180, 29%, 50%);
   background-size: cover;
+
+  position: relative;
+
+  .addjob-wrapper{
+    text-align: center;
+    padding: 1rem 2rem;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+    .addjob-link{
+      .btn-addjob{
+        height: 5rem;
+        width: 5rem;
+      }
+      span{
+        display: block;
+      }
+    }
+    
+  }
 }

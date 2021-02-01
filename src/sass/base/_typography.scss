@@ -55,9 +55,33 @@
     }
   }
 
+  .delete-btn{
+    color: $light-grey;
+  }
+
   .filters-active{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: $font-green;
+  }
+
+  .clear-wrapper{  
+    button{
+      color: $light-grey;
+      font-size: 1.8rem;    }
+  }
+}
+
+.Header{
+  .addjob-link{
+    text-decoration: none;
+    .btn-addjob{
+      color: $card-background;
+    }
+    span{
+      color: $card-background;
+      text-transform: uppercase;
+      font-size: 1.5rem;
+    }
   }
 }
