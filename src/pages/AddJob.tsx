@@ -3,6 +3,8 @@ import filters from "../filters/filters.json";
 import { postJob } from "../services/apiClient";
 import { useDispatch } from "react-redux";
 import { addJobs } from "../Store/actions";
+import { v4 as uuidv4 } from "uuid";
+
 
 export default function AddJob() {
   const [jobTitle, setJobTitle] = useState("");
@@ -14,12 +16,22 @@ export default function AddJob() {
   const [salary, setSalary] = useState(0);
   const [featured, setFeatured] = useState(false);
 
+  const [ checked, setChecked ] = useState<any>({});
+
   const dispatch = useDispatch();
 
   function handleFilters(item: string) {
     jobFilters.includes(item)
       ? setJobFilters(jobFilters.filter((val: string) => val !== item))
       : setJobFilters([...jobFilters, item]);
+  }
+
+  function toggleChecked (item: string) {
+    handleFilters(item);
+    setChecked({
+      ...checked,
+      [item]: !checked[item]
+    });
   }
 
   async function handleSubmit(){
@@ -40,6 +52,7 @@ export default function AddJob() {
   }
   return (
     <div className="AddJob">
+      <h1>Add a Job</h1>
       <form onSubmit={() => handleSubmit()} action="/">
         <div>
           <span>Job Title</span>
@@ -48,6 +61,7 @@ export default function AddJob() {
             className="text-input"
             name="title"
             onChange={(e) => setJobTitle(e.target.value)}
+            required
           />
         </div>
         <div>
@@ -57,6 +71,7 @@ export default function AddJob() {
             className="text-input"
             name="company"
             onChange={(e) => setCompanyName(e.target.value)}
+            required
           />
         </div>
         <div>
@@ -66,11 +81,14 @@ export default function AddJob() {
             className="text-input"
             name="img"
             onChange={(e) => setLogoURL(e.target.value)}
+            required
           />
+          <span>Please insert an url of your svg logo. To upload one you can use <a href="https://svgur.com/">SvgShare</a>. </span>
         </div>
         <div className="drop-input">
           <span>Job Type</span>
-          <select name="type" onChange={(e) => setJobType(e.target.value)}>
+          <select name="type" onChange={(e) => setJobType(e.target.value)}
+          required>
             <option value="Part Time">Part Time</option>
             <option value="Full Time">Full Time</option>
             <option value="Contract">Contract</option>
@@ -83,25 +101,26 @@ export default function AddJob() {
             className="text-input"
             name="location"
             onChange={(e) => setJobLocation(e.target.value)}
+            required
           />
         </div>
 
-        <div>
+        <div className="checkbox-wrapper">
           <span>Filters</span>
           <div className="checkbox-input">
             {filters &&
               filters.map((item: string) => (
-                <>
+                <React.Fragment key={uuidv4()}>
                   <label  htmlFor={item}>
                     {item}
                   </label>
                   <input
                     type="checkbox"
                     name={item}
-                    id={item}
-                    onChange={() => handleFilters(item)}
+                    checked={checked[item]}
+                    onChange={() => toggleChecked(item)}
                   />
-                </>
+                </React.Fragment>
               ))}
           </div>
         </div>
@@ -113,6 +132,7 @@ export default function AddJob() {
             className="text-input"
             name="salary"
             onChange={(e) => setSalary(parseInt(e.target.value))}
+            required
           />
         </div>
 
