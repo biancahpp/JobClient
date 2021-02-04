@@ -85,7 +85,7 @@ export default function AddJob() {
             onChange={(e) => setLogoURL(e.target.value)}
             required
           />
-          <span className="logourl-description">Please insert an url of your svg logo. To upload one you can use <a href="https://svgur.com/">SvgShare</a>. </span>
+          <span className="logourl-description">Please insert an url of your logo. To upload svg you can use<a href="https://svgur.com/">SvgShare</a>, and for other formats <a href="https://imgur.com/">Imgur</a>.</span>
         </div>
         <div className="drop-input">
           <span>Job Type</span>

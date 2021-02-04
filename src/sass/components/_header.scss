@@ -24,6 +24,33 @@
         display: block;
       }
     }
-    
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+  .Header{
+    height: 15vh;
+    .addjob-wrapper{
+      right: 3rem;
+      top: 3rem;
+    }
+  }
+}
+
+@media (min-width: 1281px){
+  .Header{
+    height: 20vh;
+    background-image: url("../../images/bg-header-desktop.svg");
+  
+    .addjob-wrapper{
+      right: 10rem;
+      top: 3rem;
+      .addjob-link{
+        .btn-addjob{
+          height: 5rem;
+          width: 5rem;
+        }
+      }
+    }
   }
 }

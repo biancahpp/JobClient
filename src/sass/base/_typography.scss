@@ -11,7 +11,7 @@
   }
   form{
     input{
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
     span{
       font-size: 1.8rem;
@@ -75,6 +75,10 @@
     h2{
       font-size: 1.8rem;
       padding: 1.5rem 0;
+      &:hover{
+        color: $font-green;
+        cursor: pointer;
+      }
     }
     .job-specs{
       color: $light-grey;
@@ -90,6 +94,11 @@
       font-size: 1.5rem;
       font-weight: 700;
       color: $font-green;
+      .tag{
+        &:hover{
+          color: $card-background;
+        }
+      }
     }
   }
 
@@ -107,6 +116,11 @@
     button{
       color: $light-grey;
       font-size: 1.8rem;
+      &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+        color: $font-green;
+      }
     }
   }
 }
@@ -128,5 +142,183 @@
 .BackBtn{
   .back-btn{
     color: $card-background;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+  .Landing{
+    font-size: 3.5rem;
+  }
+  
+  .AddJob{
+    h1{
+      font-size: 5.5rem;
+    }
+    form{
+      span{
+        font-size: 2.3rem;
+      }
+      .drop-input{
+        select{
+          font-size: 2.3rem;
+        }
+      }
+      .submitbutton-wrapper{
+        button{
+          font-size: 2.3rem;
+        }
+      }
+    }
+    .logourl-description{
+      font-size: 1.5rem;
+    }
+    .checkbox-wrapper{
+      .title-filters{
+        font-size: 2.3rem;
+      }
+      .checkbox-input{
+        span{
+          font-size: 1.9rem;
+        }
+      }   
+    }
+    .radio-input{
+      span{
+        font-size: 2.3rem;
+      }
+    }
+  }
+  
+  .JobCard{
+    &__card{
+      .job-header{
+        h3 {
+          font-size: 2.3rem;
+        }
+        span{
+          color: $card-background;
+          font-size: 1.8rem;
+        }
+      }
+      h2{
+        font-size: 2rem;
+      }
+      .job-specs{
+        color: $light-grey;
+        span{
+          font-size: 2rem;
+        }
+      }
+      .tags{
+        font-size: 1.8rem;
+      }
+    }  
+    .clear-wrapper{  
+      button{
+        font-size: 2.2rem;
+      }
+    }
+    .filters-active{
+      font-size: 1.5rem;
+    }
+  }
+  
+  .Header{
+    .addjob-link{
+      span{
+        color: $card-background;
+        text-transform: uppercase;
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 1281px){
+  .Landing{
+    font-size: 3.5rem;
+  }
+  
+  .AddJob{
+    h1{
+      font-size: 5.5rem;
+    }
+    form{
+      span{
+        font-size: 2.3rem;
+      }
+      .drop-input{
+        select{
+          font-size: 2.3rem;
+        }
+      }
+      .submitbutton-wrapper{
+        button{
+          color: $card-background;
+        }
+      }
+    }
+    .logourl-description{
+      font-size: 1.5rem;
+    }
+    .checkbox-wrapper{
+      .title-filters{
+        font-size: 2.3rem;
+      }
+      .checkbox-input{
+        span{
+          font-size: 1.9rem;
+        }
+      }   
+    }
+    .radio-input{
+      span{
+        font-size: 2.3rem;
+      }
+    }
+  }
+  
+  .JobCard{
+    &__card{
+      .job-header{
+        h3 {
+          font-size: 2.3rem;
+        }
+        span{
+          color: $card-background;
+          font-size: 1.8rem;
+        }
+      }
+      h2{
+        font-size: 2rem;
+      }
+      .job-specs{
+        color: $light-grey;
+        span{
+          font-size: 2rem;
+        }
+      }
+      .tags{
+        font-size: 1.8rem;
+      }
+    }  
+    .clear-wrapper{  
+      button{
+        font-size: 2.2rem;
+      }
+    }
+    .filters-active{
+      font-size: 1.5rem;
+    }
+  }
+  
+  .Header{
+    .addjob-link{
+      span{
+        color: $card-background;
+        text-transform: uppercase;
+        font-size: 1.8rem;
+      }
+    }
   }
 }

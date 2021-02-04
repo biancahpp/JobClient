@@ -125,6 +125,122 @@
         background-color: $filter-tablets;
       }
     }
-    
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+  .AddJob{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    form{
+      width: 75vw;
+      align-items: center;
+      .jobtitle-wrapper{
+        span{
+          padding: 1rem 1rem 1rem 0;
+        }
+      }
+      .logourl-wrapper{
+        @include form-spacing;
+        span{
+          padding: 0 1rem 1rem 0;
+        }
+      }    
+      .checkbox-wrapper{
+        .checkbox-input{
+          .checkmark-label{
+            width: 50%;
+            display: flex;
+            padding: 1rem 3rem 1rem 10rem; 
+            input{
+              min-height: 2rem;
+              min-width: 2rem;
+              margin: 0 .3rem 0 0;
+            }
+            label{
+              span{
+                padding-left: 1.5rem; 
+              }
+            }
+          }
+        }
+      }
+      .salary-wrapper{
+        @include form-spacing;
+        span{
+          padding: 0 1rem 1rem 0;
+        }
+      }
+      .radio-input{
+        @include form-spacing;
+  
+        display:flex;
+        flex-direction: column;
+        span{
+          padding: 0 1rem 1rem 0;
+        }
+        .radiospan-wrapper{
+          display: flex;
+          input{
+            height: 3rem;
+            width: 3rem;
+            margin: 0 2rem 0 2rem;
+          }
+          span{
+            display: inline-block;
+          }
+        }
+      }
+      .text-input{
+        @include input-size;
+  
+        @include input-style;
+      }
+      .submitbutton-wrapper{
+        @include form-spacing;
+        button{
+          @include input-size;
+          @include input-style;
+          background-color: $filter-tablets;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1281px){
+  .AddJob{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    form{
+      width: 60vw;
+      align-items: center;
+
+      background-color: $background-color;
+
+      padding-bottom: 5rem;
+      .jobtitle-wrapper{
+        span{
+          padding: 2rem 1rem 1rem 0;
+        }
+      }   
+      .checkbox-wrapper{
+        width: 60%;
+        .checkbox-input{
+          .checkmark-label{
+            width: 50%;
+            display: flex;
+            padding: 1rem 3rem 1rem 10rem; 
+          }
+        }
+      }
+      .submitbutton-wrapper{
+        button{
+          background-color: $font-green;
+        }
+      }
+    }
   }
 }

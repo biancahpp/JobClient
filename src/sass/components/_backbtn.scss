@@ -8,3 +8,19 @@
     left: 1rem;
   }
 }
+@media (min-width: 768px) and (max-width: 1024px){
+  .BackBtn{
+    .back-btn{
+      width: 8rem;
+      height: 8rem;
+  
+      position: absolute;
+      top: 4rem;
+      left: 10rem;
+    }
+  }
+}
+
+@media (min-width: 1281px){
+
+}

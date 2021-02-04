@@ -67,31 +67,29 @@ export default function JobCard({ details, handleFilter }: any) {
             }
           </div>
           <div className="clear-wrapper">
-            {filters.length > 0 && <button onClick={() => clearAll()}>Clear</button>}
+            {filters.length > 0 && <button onClick={() => clearAll()}> <span>Clear</span> </button>}
           </div>
-
-
-
         </div>
       }
       {details ? (
         details.map((item: any) => (
           <div key={uuidv4()} className="JobCard__card">
             <img src={item.img} alt="company-logo" />
-            <div className="job-header">
-              <h3>{item.company}</h3>
-              {item.featured === true && <span> Featured </span>}
+            <div className="info-wrapper">
+              <div className="job-header">
+                <h3>{item.company}</h3>
+                {item.featured === true && <span> Featured </span>}
+              </div>
+              <h2>{item.title}</h2>
+              <span className="job-salary">
+                {formatMoney(item.salary)}
+              </span>
+              <div className="job-specs">
+                <span>{moment(item.date, "x").fromNow()}</span>
+                <span>{item.type}</span>
+                <span>{item.location}</span>
+              </div>
             </div>
-            <h2>{item.title}</h2>
-            <span className="job-salary">
-              {formatMoney(item.salary)}
-            </span>
-            <div className="job-specs">
-              <span>{moment(item.date, "x").fromNow()}</span>
-              <span>{item.type}</span>
-              <span>{item.location}</span>
-            </div>
-
             <div className="tags">
               {item.tags &&
                 item.tags.map((tag: any) => <div key={uuidv4()} className="tag" onClick={() => filterTags(tag)}>{tag}</div>)}

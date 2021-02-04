@@ -1,6 +1,14 @@
 @mixin form-spacing{
   padding: 1.5rem;
   width: 100%;
+  @media (min-width: 768px) and (max-width: 1024px){
+    padding: 1.5rem;
+    width: 80%;
+  }
+  @media (min-width: 1281px){
+    padding: 2rem;
+    width: 60%;
+  }
 }
 
 @mixin input-style{
@@ -9,6 +17,9 @@
   border-radius: .5rem;
   box-shadow: 0 1rem 2rem rgba($shadow, .10);
   background-color: $card-background;
+  @media (min-width: 768px) and (max-width: 1024px){
+    padding: 1rem;
+  }
 }
 
 @mixin input-size{

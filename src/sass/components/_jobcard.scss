@@ -4,6 +4,8 @@
   position: absolute;
   top: 15vh;
 
+  transition: all 1.5s;
+
   .filters-wrapper{
     width: 90vw;
     background-color: $card-background;
@@ -32,6 +34,11 @@
           
           display: flex;
           align-items: center;
+
+          &:hover{
+            cursor: pointer;
+            background-color: $featured;
+          }
   
           .delete-filter{
             color: $card-background;
@@ -107,6 +114,9 @@
       border-bottom: $light-grey 1px solid;
       span{
         padding-right: 1rem;
+        &:not(:first-child):before{
+          padding-right: 1rem;
+        }
       }
     }
     .tags{
@@ -122,6 +132,10 @@
         padding: 1.2rem;
         margin: 1rem 1rem 0 0;
         border-radius: .5rem;
+        &:hover{
+          background-color: $font-green;
+          cursor: pointer;
+        }
       }
     }
     .delete-btn {
@@ -134,4 +148,90 @@
     }
   }
   
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+  .JobCard{
+    width: 75vw;
+    top: 11.5vh;
+    .filters-wrapper{
+      width: 75vw;
+      .tablets-wrapper{
+        width: 75%;
+        .filter-and-delete{
+          margin: 3rem 3rem 3rem 1.5rem;
+          .delete-icon-wrapper{
+            height: 4rem;
+          }
+        }
+      }
+    }
+    &__card{
+      padding: 5rem;
+      img{
+        position: absolute;
+        width: 9rem;
+        height: 9rem;
+  
+        top: -5rem;
+        left: 5rem;
+      }
+      .delete-btn {
+        top: 4.5rem;
+        right: 4.5rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 1281px){
+  .JobCard{
+    .filters-wrapper{
+      .tablets-wrapper{
+        .filter-and-delete{
+          padding: 1.5rem;
+        }
+      }
+    }
+    &__card{
+      display: flex;
+
+      justify-content: space-between;
+
+      margin-top: 8rem;
+  
+      img{
+        width: 11rem;
+        height: 11rem;
+  
+        top: 50%;
+        left: 0%;
+
+        transform: translate(50%, -50%);
+      }
+
+      .info-wrapper{
+        width: 50%;
+        padding-left: 20rem;   
+        .job-specs{
+          border-bottom: none;
+        }
+      }
+      .tags{
+        width: 50%;
+        height: 100%;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      .delete-btn {
+        border: none;
+        background-color: $card-background;
+  
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+      }
+    }
+    
+  }
 }
