@@ -1,3 +1,5 @@
+// eslint react-hooks/exhaustive-deps: 0
+
 import React, { useEffect } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { apiDisplayInfo } from './services/apiClient';
