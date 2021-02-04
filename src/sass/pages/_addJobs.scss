@@ -123,6 +123,12 @@
         @include input-size;
         @include input-style;
         background-color: $filter-tablets;
+
+        transition: background-color 1s;
+        &:hover{
+          cursor: pointer;
+          background-color: darken($font-green, 10%);
+        }
       }
     }
   }

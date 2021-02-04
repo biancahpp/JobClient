@@ -4,8 +4,6 @@
   position: absolute;
   top: 15vh;
 
-  transition: all 1.5s;
-
   .filters-wrapper{
     width: 90vw;
     background-color: $card-background;
@@ -34,6 +32,8 @@
           
           display: flex;
           align-items: center;
+
+          transition: all .5s;
 
           &:hover{
             cursor: pointer;
@@ -132,6 +132,8 @@
         padding: 1.2rem;
         margin: 1rem 1rem 0 0;
         border-radius: .5rem;
+        transition: all .5s;
+
         &:hover{
           background-color: $font-green;
           cursor: pointer;
