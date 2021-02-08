@@ -6,7 +6,6 @@ import { addJobs } from "../Store/actions";
 import { v4 as uuidv4 } from "uuid";
 import BackBtn from "../components/BackBtn";
 
-
 export default function AddJob() {
   const [jobTitle, setJobTitle] = useState("");
   const [companyName, setCompanyName] = useState("");
@@ -17,7 +16,7 @@ export default function AddJob() {
   const [salary, setSalary] = useState(0);
   const [featured, setFeatured] = useState(false);
 
-  const [ checked, setChecked ] = useState<any>({});
+  const [checked, setChecked] = useState<any>({});
 
   const dispatch = useDispatch();
 
@@ -27,15 +26,15 @@ export default function AddJob() {
       : setJobFilters([...jobFilters, item]);
   }
 
-  function toggleChecked (item: string) {
+  function toggleChecked(item: string) {
     handleFilters(item);
     setChecked({
       ...checked,
-      [item]: !checked[item]
+      [item]: !checked[item],
     });
   }
 
-  async function handleSubmit(){
+  async function handleSubmit() {
     const response = await postJob({
       title: jobTitle,
       company: companyName,
@@ -44,11 +43,11 @@ export default function AddJob() {
       location: jobLocation,
       salary: +salary,
       tags: jobFilters,
-      type: jobType
-    })
+      type: jobType,
+    });
 
     if (response) {
-      dispatch(addJobs(response))
+      dispatch(addJobs(response));
     }
   }
   return (
@@ -85,12 +84,33 @@ export default function AddJob() {
             onChange={(e) => setLogoURL(e.target.value)}
             required
           />
-          <span className="logourl-description">Please insert an url of your logo. To upload svg you can use<a href="https://svgur.com/">SvgShare</a>, and for other formats <a href="https://imgur.com/">Imgur</a>.</span>
+          <span className="logourl-description">
+            Please insert an url of your logo. To upload svg you can use
+            <a
+              href="https://svgur.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              SvgShare
+            </a>
+            , and for other formats
+            <a
+              href="https://imgur.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Imgur
+            </a>
+            .
+          </span>
         </div>
         <div className="drop-input">
           <span>Job Type</span>
-          <select name="type" onChange={(e) => setJobType(e.target.value)}
-          required>
+          <select
+            name="type"
+            onChange={(e) => setJobType(e.target.value)}
+            required
+          >
             <option value="Part Time">Part Time</option>
             <option value="Full Time">Full Time</option>
             <option value="Contract">Contract</option>
@@ -119,8 +139,8 @@ export default function AddJob() {
                     checked={checked[item]}
                     onChange={() => toggleChecked(item)}
                   />
-                  <label  htmlFor={item}>
-                    <span>{item}</span> 
+                  <label htmlFor={item}>
+                    <span>{item}</span>
                   </label>
                 </div>
               ))}
@@ -142,23 +162,23 @@ export default function AddJob() {
           <div className="radiospan-wrapper">
             <div>
               <input
-              type="radio"
-              name="featured"
-              value="yes"
-              onChange={() => setFeatured(true)}
+                type="radio"
+                name="featured"
+                value="yes"
+                onChange={() => setFeatured(true)}
               />
               <span>Yes</span>
             </div>
             <div>
               <input
-              type="radio"
-              name="featured"
-              value="no"
-              onChange={() => setFeatured(false)}
+                type="radio"
+                name="featured"
+                value="no"
+                onChange={() => setFeatured(false)}
               />
               <span>No</span>
             </div>
-          </div>          
+          </div>
         </div>
         <div className="submitbutton-wrapper">
           <button type="submit">Submit</button>
